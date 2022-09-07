@@ -4,7 +4,7 @@ var administradoresModel = require('./../../models/administradoresModel');
 
 /* GET login. */
 router.get('/', function(req, res, next) {
-  res.render('admin/login',{
+  res.render('/admin/login',{
   });
 });
 

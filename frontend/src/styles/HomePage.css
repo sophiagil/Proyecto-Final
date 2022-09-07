@@ -85,6 +85,7 @@ header nav {
 	background-position: center center;
 	border-bottom: 1px solid rgba(0,0,0,0.5);
 	box-shadow: 2px 2px 7px rgba(0,0,0,0.5);
+	margin-top: 20px;
 }
 
 
@@ -203,7 +204,7 @@ header nav {
 		rgba(0,0,0,0.5),
 		rgba(0,0,0,0.5)
 	)
-	,url("../../public/img/Actividades/Blog/portada.png");
+	,url("./../../public/img/Actividades/Blog/portada.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -301,19 +302,6 @@ header nav {
 	
 }
 
-/*@keyframes change {
-	0% {margin-left: 0%;}
-	20% {margin-left: 0%;}
-
-	25% {margin-left: -100%;}
-	45% {margin-left: -100%;}
-
-	50% {margin-left: -200%;}
-	70% {margin-left: -200%;}
-
-	75% {margin-left: -300%;}
-	100% {margin-left: -300%;}
-}*/
 
 #productos-texto .container{
 	display: flex;
@@ -694,6 +682,7 @@ footer.container{
 		flex-direction: column;
 		justify-content: center;
 		padding: 20px 30px;
+		font-size: 1.2rem;
 
 	}
 
@@ -769,7 +758,7 @@ footer.container{
 		justify-content: center;
 		color: black;
 		text-align: center;
-		font-size: 1rem;
+		font-size: 1.2rem;
 		margin-top: 30px;
 	}
 
@@ -797,15 +786,23 @@ footer.container{
 	}
 	
 	#blog .container  h3{
-		font-size: 1.3rem;
+		font-size: 1.1rem;
 		font-weight: 400;
 		text-decoration: none;
 		margin: 10px 20px;
 	}
 	
-	#blog .badge p {
-		margin: 0;
-		padding: 0;
+	#blog .badge  {
+		margin:auto;
+		padding: 10px 5px;
+		font-size: 0.8rem;
+		width: auto;
+		height: auto;
+		
+	}
+
+	#productos-texto .container p {
+		font-size: 1.2rem;
 	}
 
 	#productos-galeria .galeria-items{
@@ -879,7 +876,7 @@ footer.container{
 		align-items: center;
 		color: black;
 		text-align: center;
-		font-size: 0.9em;
+		font-size: 1em;
 		margin-top: 50px;
 		height: auto;
 	}

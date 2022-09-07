@@ -1,36 +1,36 @@
 var express = require('express');
 var router = express.Router();
-var actividadesModel = require('../../models/actividadesModel');
+var novedadesModel = require('../../models/novedadesModel');
 var util = require('util');
 var cloudinary = require('cloudinary').v2;
 var nodemailer = requiere ('nodemailer');
 
-router.get('/actividades', async function (res, req, next) {
-    let actividades = await actividadesModel.getActividades();
+router.get('/novedades', async function (res, req, next) {
+    let novedades = await novedadesModel.getNovedades();
 
-    actividades = actividades.map(actividades => {
-        if (actividades.img_id) {
-            const imagen = cloudinary.url(actividades.img_id, {
-                width: 960,
-                height: 200,
+    novedades = novedades.map(novedades => {
+        if (novedades.img_id) {
+            const imagen = cloudinary.url(novedades.img_id, {
+                width: 150,
+                height: 150,
                 crop: 'fill'
             });
             return {
-                ...actividades,
+                ...novedades,
                 imagen
             } 
         } else {
-            return {
-                ...actividades,
+            return {    
+                ...novedades,
                 imagen: ''
             }
         }
     }); 
 
-    res.json(actividades);
-});
+    res.json(novedades);
+}); 
 
-router.post('contacto', async (req,res) => {
+router.post('/contacto', async (req,res) => {
         const mail= {
         to: 'iguamku@gmail.com',
         subject: 'Contacto Web',
@@ -50,14 +50,12 @@ router.post('contacto', async (req,res) => {
 
     await transport.sendMail(mail)
     
-    res.status(201).json({
+   res.status(201).json({
         error: false,
         message: "Mensaje enviado"
     });
 
-}); 
-
+}) 
 
 module.exports = router;
-
 

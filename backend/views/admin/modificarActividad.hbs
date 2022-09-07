@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Modificar Contenido</title>
+    <!-- Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="../../public/stylesheets/loginStyles.css">
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+  <body class="bg-light bg-gradient">
+    
+    <section id="form_alta">
+        <div class="container">
+            <div class="col-lg-7 d-flex flex-column align-items-end min-vh-100">
+            <div class="px-lg-7 py-lg-5 p-1 w-100 align-self-center">
+                <h1 class="font-weigth-bold mb-5">Modificar Actividad</h1>
+
+                <form action="/admin/novedades/modificarActividad" method="post"
+                enctype="multipart/form-data">
+                  <input type="hidden" class="form-control bg-dark-x border-0" 
+                  name="id" value="{{novedad.id}}">
+
+                    <div class="mb-3">
+                        <label  class="form-label font-weigth-bold">Título</label>
+                        <input type="hidden" class="form-control bg-dark-x border-0" 
+                        placeholder="Ingresa el nombre de la nueva actividad" name="titulo" 
+                        value="{{novedad.Titulo}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label  class="form-label font-weigth-bold">Descripción</label>
+                        <textarea class="form-control" id="descripcion" rows="3" 
+                        placeholder="Escribe una breve descripción sobre la nueva actividad" name="descripcion">
+                        {{novedad.Descripcion}}</textarea><br/>
+                    </div>     
+
+                    <div class="mb-3">
+                        <label  class="form-label font-weigth-bold">Tipo de Actividad</label>
+                        <input type="text" class="form-control bg-dark-x border-0" 
+                        placeholder="Indica si es Seminario, Curso o Taller" name="tipo" 
+                        value="{{novedad.Tipo}}" required><br/>
+                    </div> 
+
+                    <div class="mb-3">
+                        <label  class="form-label font-weigth-bold">Días y Horarios</label>
+                        <input type="text" class="form-control bg-dark-x border-0" 
+                        placeholder="Especifica los días y horarios de cursada" name="dias-horarios" 
+                        value="{{novedad.Dias_horarios}}" required><br/>
+                    </div> 
+
+                    <div class="mb-3">
+                        <label  class="form-label font-weigth-bold">Fecha de Inicio</label>
+                        <input type="text" class="form-control bg-dark-x border-0" 
+                        placeholder="Ingresa la fecha de comienzo de la actividad" 
+                        name="fecha-inicio" value="{{novedad.Fecha_inicio}}" required><br/>
+                    </div>  
+
+                    <div class="mb-3">
+                        <label  class="form-label font-weigth-bold">Duración</label>
+                        <input type="text" class="form-control bg-dark-x border-0" 
+                        placeholder="Indica la duracion de la actividad en meses" name="duracion" 
+                        value="{{novedad.Duracion}}" required><br/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label  class="form-label font-weigth-bold">Imagen</label>
+                        <input type="file" class="form-control bg-dark-x border-0" 
+                        placeholder="Subir una imagen" id="img" name="imagen" /><br/>
+                    </div> 
+
+                    <div class="mb-3">
+                      <label><input type="checkbox" id="img_delete" name="img_delete" value="1"> 
+                      Eliminar la imagen actual?</label><br/>
+                      <input type="hidden" name="img_original" value="{{novedad.img_id}}">
+                    </div>          
+                    
+                    <button type="submit" class="btn btn-primary w-75 align-self-center">Modificar</button>
+                    <button type="submit" class="btn btn-secondary w-75 mt-3  malign-self-center">Guardar</button>
+                </form>
+                {{#if error}}
+                <p class="text-center">{{message}}</p>
+                {{/if}}
+
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="col-lg-16 pb-lg-3 pt-lg-4 bg-primary bg-gradient text-white">
+            <p class="text-center">&copy;Iguamkú 2022. Creado por Sofia Gil</p>
+         </div>
+    </footer>
+
+   
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- Popper.js, first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+    {{{body}}}
+
+  </body>
+</html>

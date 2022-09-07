@@ -9,14 +9,13 @@ var cors = require ('cors');
 require('dotenv').config(); //variables de entorno
 var session = require('express-session'); //variables de sesión 
 
-const { secureHeapUsed } = require('crypto');
 var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login');
 var adminRouter = require('./routes/admin/panelAdmin');
 var apiRouter = require('./routes/api');
 
 const pool = require('./models/bd');
-
 var app = express();
 
 // view engine setup
@@ -47,14 +46,16 @@ secured = async (req,res,next) => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
-app.use(fileUpload( { 
+// Controla la subida de las imágenes
+app.use(fileUpload({ 
   useTempFiles: true,
   tempFileDir: '/tmp/'
 }));
 
 app.use('/', indexRouter);
+app.use('/users', userRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/panelAdmin', secured, adminRouter);
 app.use('/api', cors(), apiRouter);

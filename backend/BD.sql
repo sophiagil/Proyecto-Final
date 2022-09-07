@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 31-08-2022 a las 20:16:15
+-- Tiempo de generación: 07-09-2022 a las 23:14:33
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `actividades`;
 CREATE TABLE IF NOT EXISTS `actividades` (
-  `id_actividad` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Titulo` varchar(50) NOT NULL,
   `Descripcion` varchar(250) NOT NULL,
   `Tipo` varchar(50) NOT NULL,
@@ -37,25 +37,26 @@ CREATE TABLE IF NOT EXISTS `actividades` (
   `Duracion` varchar(50) NOT NULL,
   `Fecha_inicio` varchar(50) NOT NULL,
   `Precio` float NOT NULL,
-  PRIMARY KEY (`id_actividad`)
+  `img_id` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `actividades`
 --
 
-INSERT INTO `actividades` (`id_actividad`, `Titulo`, `Descripcion`, `Tipo`, `Dias_horarios`, `Duracion`, `Fecha_inicio`, `Precio`) VALUES
-(1, 'Modelado Cerámico', 'Modelado Nivel Inicial', 'Talleres', 'Martes de 13 a 15 hs', 'Cuatrimestral', '01/09/2020', 3000),
-(2, 'Piezas utilitarias moche', 'Modelado Avanzado', 'Talleres', 'Lunes de 9 a 11 hs', 'bimestral', '10/10/2022', 5000),
-(3, 'Escultura Precolombina', 'Escultura', 'Talleres', 'Lunes de 13 a 17 hs', 'Mensual', '20/9/2022', 3000),
-(4, 'Pastas Cerámicas', 'Confeccion de las pastas de baja temperatura', 'Seminarios', 'Viernes de 14 a 16 hs', 'Bimestral', '15/10/22', 4000),
-(5, 'Engobes Artesanales', 'Confeccion y tecnicas de engobes para piezas bizcochadas', 'Seminarios', 'Martes y jueves de 16 a 17 hs', 'Mensual', '14/11/2022', 2800),
-(6, 'Esmaltes Artesanales', 'Tecnicas y creacion de esmaltes nociones basicas', 'Seminarios', 'Sabado de 15 a 17 hs', 'Mensual', '13/10/22', 4000),
-(7, 'Métodos de Cocción Ansestrales', 'Tecnicas de horneado y reduccion nativas', 'Seminarios', 'Miercoles y Viernes de 9 a 11 hs', 'Bimestral', '01/09/2022', 4000),
-(8, 'Hornos Ceramicos', 'Confeccion y tecnicas de hornos tipo chimenea ', 'Cursos', 'Sabados de 15 a 17 hs', 'Bimestral', '11/11/2022', 6000),
-(9, 'Piezas Utilitarias', 'Técnicas de modelado de piezas utilitarias varias', 'Cursos', 'Lunes y Miercoles de 16 a 18 hs', 'Anual', '01/03/2022', 2500),
-(10, 'Ceramica Sonora', 'Confección y estudio de instrumentos pre hispánicos de cerámica de Mesoamérica', 'Cursos', 'Viernes y sábados de 16 a 19 hs', 'Cuatrimestral', '20/11/2022', 10000),
-(11, 'Azulejos-Cuerda Seca', 'Técnica de cuerda seca para esmaltar azulejos y mayólicas ', 'Cursos', 'Lunes de 10 a 12 hs', 'Bimestral', '12/11/2022', 2500);
+INSERT INTO `actividades` (`id`, `Titulo`, `Descripcion`, `Tipo`, `Dias_horarios`, `Duracion`, `Fecha_inicio`, `Precio`, `img_id`) VALUES
+(1, 'Seminario de Pastas Cerámicas', 'Conoce las fórmulas efectivas para crear tus propias pastas según la temperatura de horneada. Es un seminario de cuatro encuentros.', 'Seminario', 'Lunes de 15 a 17 hs', 'Cuatro encuentros online', '12/09/2022', 3000, NULL),
+(2, 'Introducción al Modelado en Torno Cerámico', 'Aprenderás las bases para utilizar el torno cerámico y poder confeccionar rápidamente piezas utilitarias simples y retornearlas.', 'Seminario', 'Miércoles de 17 a 19 hs', 'Ocho encuentros presenciales ', '14/09/2022', 5000, NULL),
+(3, 'Escultura de piezas de la cultura Chorrera', 'Conoce los fundamentos y técnicas primarias para levantar una pieza y esculpirla. Nos enfocaremos en este seminario en las vasijas ancestrales de la cultura Chorrera de Ecuador pre colombino.', 'Taller', 'Viernes de 17 a 19 hs', 'Cuatro encuentros online', '16/09/2022', 3000, NULL),
+(4, 'Técnicas de Cocción por Reducción', 'Conoce las diferentes estrategias para cocinar las piezas esmaltadas mediante la técnica milenaria de reducción. ¡Lograrás unos colores y tornasolados únicos y creativos!', 'Talleres', 'Martes de 17 a 20 hs', 'Cinco encuentros presenciales', '01/10/2022', 4000, NULL),
+(5, 'Botellas Silbadoras para Agua', 'Conoce y construye las milenarias botellas silbadoras de las culturas pre hispánicas de Mesoamérica.', 'Talleres', 'Sábados de 17 a 19 hs', 'Ocho encuentros online', '10/10/2022', 2800, NULL),
+(6, 'Los Secretos de los Esmaltes Cerámicos', 'Iniciamos un nuevo taller sobre los secretos de los esmaltes en cerámica. Mezclas de color, matizados, tornasolados y muestras. ¡No te lo pierdas!', 'Talleres', 'Jueves de 14 a 17 hs', 'Cuatro encuentros online', '16/10/2022', 4000, NULL),
+(7, 'Métodos de Cocción Ansestrales', 'Tecnicas de horneado y reduccion nativas', 'Seminario', 'Miercoles y Viernes de 9 a 11 hs', 'Bimestral', '01/09/2022', 4000, NULL),
+(8, 'Curso de Filtros Cerámicos Condorhuasi', 'Aprende a confeccionar los filtros cerámicos Condorhuasi para descontaminar agua. Es una opción económica y sustentable.', 'Cursos', 'Viernes de 15 a 18 hs', 'Dos encuentros online', '20/10/2022', 6000, NULL),
+(9, 'Hornos Condorhuasi', 'Te enseñaremos los principios para construir un horno tipo chimenea Condorhuasi, que alcanza temperatura de gres y porcelana.', 'Cursos', 'Sábados de 10 a 14 hs', 'Dos encuentros presenciales', '5/11/2022', 2500, NULL),
+(10, 'Ceramica Sonora', 'Confección y estudio de instrumentos pre hispánicos de cerámica de Mesoamérica', 'Cursos', 'Viernes y sábados de 16 a 19 hs', 'Cuatrimestral', '20/11/2022', 10000, NULL),
+(11, 'Azulejos-Cuerda Seca', 'Técnica de cuerda seca para esmaltar azulejos y mayólicas ', 'Cursos', 'Lunes de 10 a 12 hs', 'Bimestral', '12/11/2022', 2500, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `Descripcion` varchar(250) NOT NULL,
   `Cantidad` int(11) NOT NULL,
   `Precio_dolar` varchar(50) NOT NULL,
-  `Imagen` longblob NOT NULL,
+  `imagen_id` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id_producto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -184,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `Nombre`, `Descripcion`, `Cantidad`, `Precio_dolar`, `Imagen`) VALUES
+INSERT INTO `productos` (`id_producto`, `Nombre`, `Descripcion`, `Cantidad`, `Precio_dolar`, `imagen_id`) VALUES
 (1, 'Botella Silbadora Cóndor', 'Botella de cerámica gres zoomorfa de inspiración propia.\r\nPara soplo directo o por agua', 2, '130', ''),
 (2, 'Flauta Tlapitzalli pentatónica', 'Flauta de la cultura ancestral Maya, de escala pentatónica.\r\nNotas: Mib- Fa- Sol- La- Sib', 5, '20', ''),
 (3, 'Flauta Globular ', 'Flauta globular Maya de 6 cuerpos antropomórfica de diseño propio.\r\nCon 4 obturadores. Notas: Re- Mi- Fa#- Sol', 3, '100', '');
@@ -285,7 +286,7 @@ ALTER TABLE `administradores`
 -- Filtros para la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividades` (`id_actividad`);
+  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividades` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
