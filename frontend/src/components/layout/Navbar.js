@@ -9,16 +9,19 @@ const Navbar = () => {
 		<header>
 			<div className="container">
 				<div className="logo">
-					<Link className="logo-link" to="/">Iguamku Cerámica</Link>
+					<Link className="logo-link" to="/">Cerámica Iguamku </Link>
 				</div>
 				
 				<nav>
 					<div className="menu-bar">
+							<li><Link className="text-link" to="/" spy={true} 
+							smooth={true} offset={50} duration={500} onclick={closeMenu}>Home</Link></li>
+
 							<li><Link className="text-link" to="/nosotros" spy={true} 
 							smooth={true} offset={50} duration={500} onclick={closeMenu}>Sobre Nosotros</Link></li>
 
 							<li><Link className="text-link" to="/actividades" spy={true} 
-							smooth={true} offset={50} duration={500} onclick={closeMenu}>Cursos y Talleres</Link></li>
+							smooth={true} offset={50} duration={500} onclick={closeMenu}>Actividades</Link></li>
 
 							<li><Link className="text-link" to="/productos" spy={true} 
 							smooth={true} offset={50} duration={500} onclick={closeMenu}>Nuestros Productos</Link></li>

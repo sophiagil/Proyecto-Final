@@ -13,7 +13,7 @@ const ContactoPage = (props) => {
 
     const [sending, setSending] = useState(false);
     const [msg, setMsg] = useState('');
-    const [formData, setData] = useState(initialForm);
+    const [formData, setFormData] = useState(initialForm);
 
     const handleChange = e => {
         const {name, value} = e.target;
@@ -21,7 +21,9 @@ const ContactoPage = (props) => {
             ...oldData,
             [name]: value
         }));
+    }
 
+    //Función que se encarga de validar los datos y enviar el formulario    
     const handleSubmit = async e => {
         e.preventDefault();
         setMsg('');
@@ -42,21 +44,21 @@ const ContactoPage = (props) => {
 
         <section id="contacto">
             <div class="contacto-container">
-                <form class="form" action="/contacto" method="post" className="formulario">
-                    <p class="form_parrafo">Envía tus consultas por <a href="#" class="form_enlace">aquí</a>. Recibirás un correo electrónico con toda la info!</p>
+                <form class="form" action="/contacto" method="post" className="formulario" onSubmit={handleSubmit}>
+                    <p class="form_parrafo">Envía tus consultas por completando los siguientes datos. Recibirás un correo electrónico con toda la info!</p>
 
                     <div class="form_container">
                         <div class="form_group">
-                            <label for="name" class="form_label">Nombre:</label>
                             <input type="text" id="name" class="form_input" name='nombre' value={formData.nombre} onChange={handleChange} />
+                            <label for="name" class="form_label">Nombre:</label>
                             <span class="form_line"></span>
                         </div>
                     </div>
 
                     <div class="form_container">
                         <div class="form_group">
-                            <label for="mail" class="form_label">Correo electrónico:</label>
                             <input type="text" id="email" class="form_input" name='email' value={formData.email} onChange={handleChange} />
+                            <label for="mail" class="form_label">Correo electrónico:</label>
                             <span class="form_line"></span>
                         </div>
                     </div>
@@ -71,20 +73,20 @@ const ContactoPage = (props) => {
 
                     <div class="form_container">
                         <div class="form_group">
-                            <label for="msg" class="form_label">Mensaje:</label>
                             <textarea id="msg" class="form_textarea"  name="mensaje"  value={formData.mensaje} onChange={handleChange}></textarea>
+                            <label for="msg" class="form_label">Mensaje:</label>
                             <span class="form_line"></span>
                         </div>
                         <input type="submit" class="submit" value="Enviar" />
                     </div>  
                 </form>
-                    {sending ? <p>Enviando...</p> : null}
-                    {msg ? <p>{msg}</p> : null}
             </div>
+            {sending ? <p className="text-center pb-5">Enviando...</p> : null}
+            {msg ? <p className="text-center">{msg}</p> : null}
         </section>   
     </body>
         );
     }
-}
+
 
 export default ContactoPage;
